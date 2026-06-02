@@ -42,8 +42,8 @@ router.post('/register', async (req, res) => {
       }
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    console.error('Register error:', error);
+    res.status(500).json({ message: error.message || 'Server error' });
   }
 });
 
@@ -183,6 +183,24 @@ router.get('/profile', async (req, res) => {
   } catch (error) {
     console.error('Profile fetch error:', error);
     res.status(500).json({ message: 'Failed to fetch profile' });
+  }
+});
+
+// Update own profile (authenticated)
+router.put('/profile', async (req, res) => {
+  try {
+    const token = req.headers.authorization?.split(' ')[1];
+    if (!token) return res.status(401).json({ message: 'No token' });
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const allowed = ['name','phone','bio','linkedin','college','degree','graduationYear',
+      'skills','industry','website','location','address','accreditation'];
+    const updates = {};
+    allowed.forEach(k => { if (req.body[k] !== undefined) updates[k] = req.body[k]; });
+    const user = await User.findByIdAndUpdate(decoded.userId, updates, { new: true }).select('-password');
+    if (!user) return res.status(404).json({ message: 'User not found' });
+    res.json(user);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 });
 

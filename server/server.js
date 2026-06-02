@@ -11,7 +11,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3000', // Allow frontend requests
+  origin: process.env.FRONTEND_URL || 'http://localhost:8080', // Allow frontend requests
   credentials: true
 }));
 app.use(express.json());
@@ -31,6 +31,8 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/students', require('./routes/students'));
 app.use('/api/companies', require('./routes/companies'));
 app.use('/api/universities', require('./routes/universities'));
+app.use('/api/internships', require('./routes/internships'));
+app.use('/api/applications', require('./routes/applications'));
 
 // Error handling middleware
 app.use((err, req, res, next) => {
