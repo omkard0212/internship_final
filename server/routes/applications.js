@@ -61,6 +61,7 @@ router.post('/', auth, async (req, res) => {
       company: internship.company,
     });
     await app.save();
+    await Internship.findByIdAndUpdate(internshipId, { $inc: { applicants: 1 } });
     res.status(201).json(app);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -98,6 +99,7 @@ router.delete('/:id', auth, async (req, res) => {
     }
 
     await Application.findByIdAndDelete(req.params.id);
+    await Internship.findByIdAndUpdate(app.internshipId, { $inc: { applicants: -1 } });
     res.json({ message: 'Application withdrawn' });
   } catch (err) {
     console.error('Withdraw error:', err);

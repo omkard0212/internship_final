@@ -19,43 +19,43 @@ const users = [
     email: 'john.doe@student.com', password: 'password123', userType: 'student',
     name: 'John Doe', bio: 'Passionate software developer with experience in full-stack web development.',
     college: 'FRCRCE', degree: 'B.E. Computer Engineering',
-    graduationYear: '2026', skills: ['React','Node.js','Python','SQL','Git'],
+    graduationYear: '2026', skills: ['React','Node.js','Python','SQL','Git'], gpa: 8.7,
   },
   {
     email: 'priya.nair@student.com', password: 'password123', userType: 'student',
     name: 'Priya Nair', bio: 'Final year IT student specializing in data science.',
     college: 'FRCRCE', degree: 'B.E. Information Technology',
-    graduationYear: '2025', skills: ['Java','Spring Boot','SQL','AWS','Python'],
+    graduationYear: '2025', skills: ['Java','Spring Boot','SQL','AWS','Python'], gpa: 9.1,
   },
   {
     email: 'aditya.sharma@student.com', password: 'password123', userType: 'student',
     name: 'Aditya Sharma', college: 'FRCRCE', degree: 'B.E. Computer Engineering',
-    graduationYear: '2026', skills: ['React','Node.js','Python'],
+    graduationYear: '2026', skills: ['React','Node.js','Python'], gpa: 8.2,
   },
   {
     email: 'sneha.patil@student.com', password: 'password123', userType: 'student',
     name: 'Sneha Patil', college: 'FRCRCE', degree: 'B.E. Computer Engineering',
-    graduationYear: '2027', skills: ['Python','ML','TensorFlow'],
+    graduationYear: '2027', skills: ['Python','ML','TensorFlow'], gpa: 8.5,
   },
   {
     email: 'ananya.iyer@student.com', password: 'password123', userType: 'student',
     name: 'Ananya Iyer', college: 'FRCRCE', degree: 'B.E. Information Technology',
-    graduationYear: '2026', skills: ['React','TypeScript','MongoDB'],
+    graduationYear: '2026', skills: ['React','TypeScript','MongoDB'], gpa: 8.9,
   },
   {
     email: 'kiran.desai@student.com', password: 'password123', userType: 'student',
     name: 'Kiran Desai', college: 'FRCRCE', degree: 'B.E. Mechanical Engineering',
-    graduationYear: '2025', skills: ['AutoCAD','SolidWorks','ANSYS'],
+    graduationYear: '2025', skills: ['AutoCAD','SolidWorks','ANSYS'], gpa: 7.5,
   },
   {
     email: 'rohan.mehta@student.com', password: 'password123', userType: 'student',
     name: 'Rohan Mehta', college: 'FRCRCE', degree: 'B.E. Electronics & Telecommunication',
-    graduationYear: '2026', skills: ['Embedded C','Arduino','MATLAB'],
+    graduationYear: '2026', skills: ['Embedded C','Arduino','MATLAB'], gpa: 7.8,
   },
   {
     email: 'riya.fernandes@student.com', password: 'password123', userType: 'student',
     name: 'Riya Fernandes', college: 'FRCRCE', degree: 'B.E. Information Technology',
-    graduationYear: '2025', skills: ['Data Science','R','Tableau'],
+    graduationYear: '2025', skills: ['Data Science','R','Tableau'], gpa: 9.3,
   },
   // University
   {

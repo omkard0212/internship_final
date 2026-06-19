@@ -16,6 +16,7 @@ const internshipSchema = new mongoose.Schema({
   pos:         [{ type: String }],
   peos:        [{ type: String }],
   status:      { type: String, enum: ['open','closed'], default: 'open' },
+  applicants:  { type: Number, default: 0 },
   approvedByUniversity: { type: Boolean, default: false },
   createdAt:   { type: Date, default: Date.now },
 });

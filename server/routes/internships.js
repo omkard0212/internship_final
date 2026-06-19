@@ -6,10 +6,11 @@ const Internship = require('../models/Internship');
 // GET all open internships (public listing)
 router.get('/', async (req, res) => {
   try {
-    const { department, sdg, status } = req.query;
+    const { department, sdg, status, companyId } = req.query;
     const filter = {};
     if (department) filter.department = department;
     if (sdg) filter.sdgs = sdg;
+    if (companyId) filter.companyId = companyId;
     if (status === 'all') {
       // no status filter — return all
     } else if (status) {

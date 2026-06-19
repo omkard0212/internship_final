@@ -41,9 +41,18 @@ const userSchema = new mongoose.Schema({
   graduationYear: {
     type: String
   },
+  gpa: {
+    type: Number,
+    default: 0
+  },
   skills: [{
     type: String
   }],
+  gpa: {
+    type: Number,
+    min: 0,
+    max: 10,
+  },
   // Company specific fields
   industry: {
     type: String
