@@ -32,12 +32,10 @@ const userSchema = new mongoose.Schema({
     type: String
   },
   // Student specific fields
-  college: {
-    type: String
-  },
-  degree: {
-    type: String
-  },
+  college: { type: String },
+  department: { type: String },
+  year: { type: String },
+  degree: { type: String },
   graduationYear: {
     type: String
   },

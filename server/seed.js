@@ -221,7 +221,17 @@ async function seed() {
   const createdUsers = {};
   for (const u of users) {
     const hashed = await bcrypt.hash(u.password, 10);
-    const user = await User.create({ ...u, password: hashed });
+    // Use insertOne directly to bypass the pre-save hook (which would double-hash)
+    const result = await User.collection.insertOne({
+      ...u,
+      password: hashed,
+      isProfileComplete: false,
+      completedInternships: [],
+      ongoingInternships: [],
+      reviews: [],
+      createdAt: new Date(),
+    });
+    const user = { ...u, _id: result.insertedId };
     createdUsers[u.email] = user;
     console.log(`👤 Created user: ${u.email} (${u.userType})`);
   }

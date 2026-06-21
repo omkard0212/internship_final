@@ -193,7 +193,7 @@ router.put('/profile', async (req, res) => {
     if (!token) return res.status(401).json({ message: 'No token' });
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const allowed = ['name','phone','bio','linkedin','college','degree','graduationYear',
-      'skills','industry','website','location','address','accreditation'];
+      'skills','industry','website','location','address','accreditation','gpa','department','year'];
     const updates = {};
     allowed.forEach(k => { if (req.body[k] !== undefined) updates[k] = req.body[k]; });
     const user = await User.findByIdAndUpdate(decoded.userId, updates, { new: true }).select('-password');
